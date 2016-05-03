@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#F27935</color>
+    <color name="colorPrimaryDark">#D35400</color>
+    <color name="colorAccent">#F9BF3B</color>
+
+    <color name="titini_gold">#FDE3A7</color>
+    <color name="whiteSmoke">#ECECEC</color>
+</resources>

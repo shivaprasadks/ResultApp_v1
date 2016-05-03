@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bootstrap_brand_danger"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+
+            <TextView
+                android:id="@+id/pep_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="All the best"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/pp_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="do well" />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="20dp"
+        ads:adSize="SMART_BANNER"
+
+        ads:adUnitId="ca-app-pub-9668220491500664/4371135034" />
+
+</RelativeLayout>
