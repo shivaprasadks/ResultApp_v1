@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -24,7 +25,7 @@ public class ResultActivity extends Activity {
     private static final String TAG = "Main";
     private ProgressDialog progressBar;
     AdRequest adRequest;
-
+String code;
     /**
      * Called when the activity is first created.
      */
@@ -35,6 +36,11 @@ public class ResultActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         setContentView(R.layout.activity_result);
+
+        Intent in = getIntent();
+
+        code = in.getStringExtra("LANG_TAG");
+
 
         AdView adview = (AdView) this.findViewById(R.id.adview);
         adRequest = new AdRequest.Builder().build();
@@ -84,7 +90,7 @@ public class ResultActivity extends Activity {
                 alertDialog.show();
             }
         });
-        webview.loadUrl("http://karresults.nic.in/");
+        webview.loadUrl("http://mosambitech.com/testapp/resultapp.php?code="+code);
     }
 
     @Override

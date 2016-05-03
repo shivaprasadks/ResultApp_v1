@@ -1,5 +1,6 @@
 package com.mosambitech.pucresults;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -18,7 +19,8 @@ import com.beardedhen.androidbootstrap.TypefaceProvider;
 
 public class LaunchActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-View cet , sslc, puc,comedk;
+    View cet, sslc, puc, comedk;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +34,7 @@ View cet , sslc, puc,comedk;
         sslc = (View) findViewById(R.id.btn_sslc);
         cet = (View) findViewById(R.id.btn_cet);
         puc = (View) findViewById(R.id.btn_puc);
-        comedk =(View) findViewById(R.id.btn_comedk);
+        comedk = (View) findViewById(R.id.btn_comedk);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -43,7 +45,42 @@ View cet , sslc, puc,comedk;
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
+        sslc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LaunchActivity.this, ResultActivity.class);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                i.putExtra("LANG_TAG", "SSLC");
+                startActivity(i);
+            }
+        });
+        puc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LaunchActivity.this, ResultActivity.class);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                i.putExtra("LANG_TAG", "PUC");
+                startActivity(i);
+            }
+        });
+        cet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LaunchActivity.this, ResultActivity.class);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                i.putExtra("LANG_TAG", "CET");
+                startActivity(i);
+            }
+        });
+        comedk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LaunchActivity.this, ResultActivity.class);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                i.putExtra("LANG_TAG", "COMED K");
+                startActivity(i);
+            }
+        });
 
     }
 
