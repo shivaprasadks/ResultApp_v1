@@ -13,11 +13,18 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.TypefaceProvider;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.pushbots.push.Pushbots;
 
 public class LaunchActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     View cet, sslc, puc, comedk;
+    AdRequest adRequest;
+
+    private InterstitialAd interstitial;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +35,39 @@ public class LaunchActivity extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //adview
+
+        AdView adview = (AdView) this.findViewById(R.id.adview);
+        adRequest = new AdRequest.Builder().build();
+        adview.loadAd(adRequest);
+
+        //interstitials
+        interstitial = new InterstitialAd(LaunchActivity.this);
+        // Insert the Ad Unit ID
+        interstitial.setAdUnitId("ca-app-pub-9668220491500664/5847868231");
+
+        // Locate the Banner Ad in activity_main.xml
+
+        // Request for Ads
+        AdRequest adRequest = new AdRequest.Builder().build();
+
+        // Add a test device to show Test Ads
+
+        // Load ads into Banner Ads
+
+        // Load ads into Interstitial Ads
+        interstitial.loadAd(adRequest);
+
+        // Prepare an Interstitial Ad Listener
+        interstitial.setAdListener(new AdListener() {
+            public void onAdLoaded() {
+                // Call displayInterstitial() function
+                interstitial.show();
+            }
+        });
+
+
 
         sslc = (View) findViewById(R.id.btn_sslc);
         cet = (View) findViewById(R.id.btn_cet);
@@ -47,36 +87,40 @@ public class LaunchActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(LaunchActivity.this, ResultActivity.class);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
                 i.putExtra("LANG_TAG", "SSLC");
                 startActivity(i);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
         puc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(LaunchActivity.this, ResultActivity.class);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
                 i.putExtra("LANG_TAG", "PUC");
                 startActivity(i);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
         cet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(LaunchActivity.this, ResultActivity.class);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
                 i.putExtra("LANG_TAG", "CET");
                 startActivity(i);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
         comedk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(LaunchActivity.this, ResultActivity.class);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
                 i.putExtra("LANG_TAG", "COMED K");
                 startActivity(i);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
 
